@@ -28,7 +28,6 @@ public class CadastroAutoresService {
 		
 	}
 
-
 	public void cadastrar(@Valid CadastroAutoresFormDto dto) {
 		CadastroAutores cadastro = modelMapper.map(dto,CadastroAutores.class);
 		cadastros.add(cadastro);
