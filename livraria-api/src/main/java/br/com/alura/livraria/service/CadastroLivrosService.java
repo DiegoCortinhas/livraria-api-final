@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.alura.livraria.dto.CadastroLivrosDto;
 import br.com.alura.livraria.dto.CadastroLivrosFormDto;
@@ -30,10 +31,11 @@ public class CadastroLivrosService {
 				.map(c -> modelMapper.map(c, CadastroLivrosDto.class))
 				.collect(Collectors.toList());
 	}
-
+	
+	@Transactional
 	public void cadastrar(@Valid CadastroLivrosFormDto dto) {
 		CadastroLivros cadastro = modelMapper.map(dto, CadastroLivros.class);
-		
+		cadastro.setId(null);
 		cadastroLivrosRepository.save(cadastro);
 		
 	}
