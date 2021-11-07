@@ -11,6 +11,8 @@ import javax.validation.constraints.Size;
 
 import org.modelmapper.internal.bytebuddy.asm.Advice.AllArguments;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +28,12 @@ public class CadastroLivrosFormDto {
 	@NotNull @Min(100)
 	private int numeroPaginas;
 	
+	/*
 	@NotNull
 	private CadastroAutoresDto autor;
-
+	*/
+	
+	@JsonAlias("cadastroAutor_id")
+	private Long cadastroAutorId;
+	
 }

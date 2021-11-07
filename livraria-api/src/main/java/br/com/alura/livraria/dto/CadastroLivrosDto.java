@@ -9,6 +9,6 @@ import lombok.Setter;
 public class CadastroLivrosDto {
 	private String titulo;
 	private LocalDate dataLancamento;
-	private int numeroPaginas;
+	private Integer numeroPaginas;
 	private CadastroAutoresDto autor;
 }

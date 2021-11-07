@@ -7,6 +7,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,4 +27,5 @@ public class CadastroAutoresFormDto {
 	@NotBlank
 	private String miniCurriculo;
 	
+		
 }
