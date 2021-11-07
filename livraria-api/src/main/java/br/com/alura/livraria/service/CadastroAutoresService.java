@@ -1,12 +1,11 @@
 package br.com.alura.livraria.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.alura.livraria.dto.CadastroAutoresDto;
@@ -22,13 +21,11 @@ public class CadastroAutoresService {
 	
 	private ModelMapper modelMapper = new ModelMapper();
 		
-	public List<CadastroAutoresDto> listar() {
-		List<CadastroAutores> cadastroAutores = cadastroAutoresRepository.findAll();
+	public Page<CadastroAutoresDto> listar(Pageable paginacao) {
+		Page<CadastroAutores> cadastroAutores = cadastroAutoresRepository.findAll(paginacao);
 		
 		return cadastroAutores
-				.stream()
-				.map(c -> modelMapper.map(c, CadastroAutoresDto.class))
-				.collect(Collectors.toList());
+				.map(c -> modelMapper.map(c, CadastroAutoresDto.class));
 		
 	}
 
