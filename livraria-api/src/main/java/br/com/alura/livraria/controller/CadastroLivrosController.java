@@ -25,7 +25,7 @@ public class CadastroLivrosController {
 	
 	
 	@GetMapping
-	public Page <CadastroLivrosDto> listar(@PageableDefault(size=10) Pageable paginacao){
+	public Page <CadastroLivrosDto> listar(@PageableDefault(size=15) Pageable paginacao){
 		return service.listar(paginacao);
 	}
 	
