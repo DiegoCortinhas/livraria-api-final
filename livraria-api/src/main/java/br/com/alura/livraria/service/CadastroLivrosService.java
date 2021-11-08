@@ -32,7 +32,7 @@ public class CadastroLivrosService {
 		CadastroLivros cadastro = modelMapper.map(dto, CadastroLivros.class);
 		cadastro.setId(null);
 		cadastroLivrosRepository.save(cadastro);
-		
+		//return modelMapper.map(cadastro,CadastroLivrosDto.class);
 	}
 	
 }

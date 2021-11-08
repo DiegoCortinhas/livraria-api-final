@@ -31,7 +31,7 @@ public class CadastroAutoresService {
 
 	public void cadastrar(@Valid CadastroAutoresFormDto dto) {
 		CadastroAutores cadastro = modelMapper.map(dto,CadastroAutores.class);
-		
+		cadastro.setId(null);
 		cadastroAutoresRepository.save(cadastro);
 		
 	}

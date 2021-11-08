@@ -26,7 +26,7 @@ public class CadastroLivrosFormDto {
 	private LocalDate dataLancamento;
 	
 	@NotNull @Min(100)
-	private int numeroPaginas;
+	private Integer numeroPaginas;
 	
 	/*
 	@NotNull

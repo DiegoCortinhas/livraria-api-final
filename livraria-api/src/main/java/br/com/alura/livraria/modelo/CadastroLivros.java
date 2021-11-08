@@ -22,7 +22,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="livros")
+@Table(name = "livros")
 public class CadastroLivros {
 	
 	@Id
@@ -30,14 +30,13 @@ public class CadastroLivros {
 	private Long id;
 	private String titulo;
 	
-	@Column(name="data_lancamento")
+	@Column(name = "dataLancamento")
 	private LocalDate dataLancamento;
 	
-	@Column(name="numero_paginas")
+	@Column(name = "numeroPaginas")
 	private Integer numeroPaginas;
 	
 	@ManyToOne 
 	private CadastroAutores cadastroAutor;
-	
 	
 }
