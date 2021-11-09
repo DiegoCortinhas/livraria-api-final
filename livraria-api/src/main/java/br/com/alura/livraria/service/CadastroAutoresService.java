@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.alura.livraria.dto.CadastroAutoresDto;
 import br.com.alura.livraria.dto.CadastroAutoresFormDto;
+import br.com.alura.livraria.dto.CadastroLivrosDto;
 import br.com.alura.livraria.modelo.CadastroAutores;
 import br.com.alura.livraria.repository.CadastroAutoresRepository;
 
@@ -29,11 +30,11 @@ public class CadastroAutoresService {
 		
 	}
 
-	public void cadastrar(@Valid CadastroAutoresFormDto dto) {
+	public CadastroAutoresDto cadastrar(@Valid CadastroAutoresFormDto dto) {
 		CadastroAutores cadastro = modelMapper.map(dto,CadastroAutores.class);
 		cadastro.setId(null);
 		cadastroAutoresRepository.save(cadastro);
-		
+		return modelMapper.map(cadastro,CadastroAutoresDto.class);
 	}
 	
 }

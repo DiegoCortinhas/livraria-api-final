@@ -7,6 +7,8 @@ import lombok.Setter;
 
 @Getter @Setter
 public class CadastroLivrosDto {
+	
+	private Long id;
 	private String titulo;
 	private LocalDate dataLancamento;
 	private Integer numeroPaginas;

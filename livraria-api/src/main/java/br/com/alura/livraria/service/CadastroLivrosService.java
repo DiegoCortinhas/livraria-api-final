@@ -28,11 +28,11 @@ public class CadastroLivrosService {
 	}
 	
 	@Transactional
-	public void cadastrar(@Valid CadastroLivrosFormDto dto) {
+	public CadastroLivrosDto cadastrar(@Valid CadastroLivrosFormDto dto) {
 		CadastroLivros cadastro = modelMapper.map(dto, CadastroLivros.class);
 		cadastro.setId(null);
 		cadastroLivrosRepository.save(cadastro);
-		//return modelMapper.map(cadastro,CadastroLivrosDto.class);
+		return modelMapper.map(cadastro,CadastroLivrosDto.class);
 	}
 	
 }
