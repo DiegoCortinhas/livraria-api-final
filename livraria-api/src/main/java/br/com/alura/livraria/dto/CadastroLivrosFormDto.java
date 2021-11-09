@@ -33,7 +33,7 @@ public class CadastroLivrosFormDto {
 	private CadastroAutoresDto autor;
 	*/
 	
-	@JsonAlias("cadastroAutor_id")
+	@JsonAlias("cadastro_autor_id")
 	private Long cadastroAutorId;
 	
 }

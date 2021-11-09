@@ -30,10 +30,10 @@ public class CadastroLivros {
 	private Long id;
 	private String titulo;
 	
-	@Column(name = "dataLancamento")
+	@Column(name = "data_lancamento")
 	private LocalDate dataLancamento;
 	
-	@Column(name = "numeroPaginas")
+	@Column(name = "numero_paginas")
 	private Integer numeroPaginas;
 	
 	@ManyToOne 

@@ -30,10 +30,10 @@ public class CadastroAutores {
 	private String nome;
 	private String email;
 	
-	@Column(name="dataNascimento")
+	@Column(name="data_nascimento")
 	private LocalDate dataNascimento;
 	
-	@Column(name="miniCurriculo")
+	@Column(name="mini_curriculo")
 	private String miniCurriculo;
 	
 }
