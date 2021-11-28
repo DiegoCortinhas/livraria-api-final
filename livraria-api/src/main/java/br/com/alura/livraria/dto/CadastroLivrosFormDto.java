@@ -19,13 +19,15 @@ import lombok.Setter;
 @Getter @Setter
 public class CadastroLivrosFormDto {
 	
-	@NotBlank @Size(min = 10)
+	@NotBlank 
+	@Size(min = 10)
 	private String titulo;
 	
 	@PastOrPresent
 	private LocalDate dataLancamento;
 	
-	@NotNull @Min(100)
+	@NotNull
+	@Min(100)
 	private Integer numeroPaginas;
 	
 	/*
