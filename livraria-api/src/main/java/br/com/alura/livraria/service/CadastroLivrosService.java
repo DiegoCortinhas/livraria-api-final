@@ -1,5 +1,6 @@
 package br.com.alura.livraria.service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
@@ -37,12 +38,22 @@ public class CadastroLivrosService {
 		//throw new NullPointerException("testando Erro NullPointer");
 		
 		Long idAutor = dto.getCadastroAutorId();
-		CadastroAutores autor = cadastroAutoresRepository.getById(idAutor);
-		CadastroLivros cadastro = modelMapper.map(dto, CadastroLivros.class);
-		cadastro.setId(null);
-		cadastro.setCadastroAutor(autor);
-		cadastroLivrosRepository.save(cadastro);
-		return modelMapper.map(cadastro, CadastroLivrosDto.class);
+		
+		try {
+			CadastroAutores autor = cadastroAutoresRepository.getById(idAutor);
+			CadastroLivros cadastro = modelMapper.map(dto, CadastroLivros.class);
+			cadastro.setId(null);
+			cadastro.setCadastroAutor(autor);
+			cadastroLivrosRepository.save(cadastro);
+			return modelMapper.map(cadastro, CadastroLivrosDto.class);
+			
+		} catch (EntityNotFoundException e) {
+			throw new IllegalArgumentException("autor inexistente");
+		}
+		
+		
+		
+		
 		 
 	}
 	

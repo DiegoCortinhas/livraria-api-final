@@ -9,14 +9,17 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
-import org.modelmapper.internal.bytebuddy.asm.Advice.AllArguments;
-
 import com.fasterxml.jackson.annotation.JsonAlias;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter 
+@Setter 
+@AllArgsConstructor
+@NoArgsConstructor
 public class CadastroLivrosFormDto {
 	
 	@NotBlank 
