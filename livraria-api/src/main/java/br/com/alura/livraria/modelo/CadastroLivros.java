@@ -38,5 +38,17 @@ public class CadastroLivros {
 	
 	@ManyToOne 
 	private CadastroAutores cadastroAutor;
+
+	public CadastroLivros(String titulo, LocalDate dataLancamento, Integer numeroPaginas,
+			CadastroAutores cadastroAutor) {
+		
+		this.titulo = titulo;
+		this.dataLancamento = dataLancamento;
+		this.numeroPaginas = numeroPaginas;
+		this.cadastroAutor = cadastroAutor;
+	}
+	
+	
+	
 	
 }
