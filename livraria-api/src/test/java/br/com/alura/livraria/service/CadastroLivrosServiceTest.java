@@ -30,31 +30,33 @@ class CadastroLivrosServiceTest {
 	@InjectMocks
 	private CadastroLivrosService service;
 	
+	private CadastroLivrosFormDto criarLivrosFormDto(String titulo, Integer quantidade, Long id) {
+		CadastroLivrosFormDto formDto = new CadastroLivrosFormDto(
+				titulo, 
+				LocalDate.now(), 
+				quantidade, 
+				id);
+		return formDto;
+	}
+	
 	@Test
 	void deveriaCadastrarUmLivro() {
 		
-		CadastroLivrosFormDto formDto = new CadastroLivrosFormDto(
-				"A culpa é das Estrelas", 
-				LocalDate.now(), 
-				570, 
-				2l);
+		CadastroLivrosFormDto formDto = criarLivrosFormDto("A culpa é das Estrelas",570,2l);
 		CadastroLivrosDto dto = service.cadastrar(formDto);
 		
-		//Mockito.verify(cadastroLivrosRepository.save(Mockito.any()));
+		Mockito.verify(cadastroLivrosRepository).save(Mockito.any());
 		
 		assertEquals(formDto.getTitulo(), dto.getTitulo());
 		assertEquals(formDto.getNumeroPaginas(), dto.getNumeroPaginas());
 		assertEquals(formDto.getDataLancamento(), dto.getDataLancamento());
 	}
-	
+
+			
 	@Test
 	void naoDeveriaCadastrarUmLivroComAutorInexistente() {
 		
-		CadastroLivrosFormDto formDto = new CadastroLivrosFormDto(
-				"A culpa é das Estrelas", 
-				LocalDate.now(), 
-				570, 
-				999999l);
+		CadastroLivrosFormDto formDto = criarLivrosFormDto("A culpa é das Estrelas",570,999999l);
 		
 		Mockito
 		.when(cadastroAutoresRepository.getById(formDto.getCadastroAutorId()))
