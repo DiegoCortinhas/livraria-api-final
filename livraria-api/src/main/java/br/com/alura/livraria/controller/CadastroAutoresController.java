@@ -18,7 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.alura.livraria.dto.CadastroAutoresDto;
 import br.com.alura.livraria.dto.CadastroAutoresFormDto;
-import br.com.alura.livraria.dto.CadastroLivrosDto;
 import br.com.alura.livraria.service.CadastroAutoresService;
 
 @RestController
