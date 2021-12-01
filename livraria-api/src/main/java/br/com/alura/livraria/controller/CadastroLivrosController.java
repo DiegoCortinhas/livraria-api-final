@@ -19,9 +19,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.alura.livraria.dto.CadastroLivrosDto;
 import br.com.alura.livraria.dto.CadastroLivrosFormDto;
 import br.com.alura.livraria.service.CadastroLivrosService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/livros")
+@Api(tags="Livros")
 public class CadastroLivrosController {
 	
 	@Autowired
@@ -29,11 +32,13 @@ public class CadastroLivrosController {
 	
 	
 	@GetMapping
+	@ApiOperation("Listar livros")
 	public Page <CadastroLivrosDto> listar(@PageableDefault(size=15) Pageable paginacao){
 		return service.listar(paginacao);
 	}
 	
 	@PostMapping
+	@ApiOperation("Cadastrar novo livro")
 	public ResponseEntity<CadastroLivrosDto> cadastrar(@RequestBody @Valid CadastroLivrosFormDto dto,UriComponentsBuilder uriBuilder) {
 		CadastroLivrosDto cadastroLivrosDto = service.cadastrar(dto);
 		URI uri = uriBuilder
