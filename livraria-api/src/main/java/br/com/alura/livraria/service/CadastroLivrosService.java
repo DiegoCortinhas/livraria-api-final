@@ -2,6 +2,7 @@ package br.com.alura.livraria.service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.alura.livraria.dto.AtualizacaoLivrosFormDto;
 import br.com.alura.livraria.dto.CadastroLivrosDto;
 import br.com.alura.livraria.dto.CadastroLivrosFormDto;
 import br.com.alura.livraria.modelo.CadastroAutores;
@@ -50,11 +52,29 @@ public class CadastroLivrosService {
 		} catch (EntityNotFoundException e) {
 			throw new IllegalArgumentException("autor inexistente");
 		}
-		
-		
-		
+
 		
 		 
+	}
+	
+	@Transactional
+	public CadastroLivrosDto atualizar(AtualizacaoLivrosFormDto dto) {
+		CadastroLivros livro = cadastroLivrosRepository.getById(dto.getId());
+		livro.atualizarInformacoes(dto.getTitulo(),dto.getDataLancamento(),dto.getNumeroPaginas());
+		
+		return modelMapper.map(livro, CadastroLivrosDto.class);
+	}
+	
+	@Transactional
+	public void remover(Long id) {
+		cadastroLivrosRepository.deleteById(id);
+	}
+
+	public CadastroLivrosDto detalhar(Long id) {
+		CadastroLivros livro = cadastroLivrosRepository
+				.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException());
+		return modelMapper.map(livro, CadastroLivrosDto.class);
 	}
 	
 }
