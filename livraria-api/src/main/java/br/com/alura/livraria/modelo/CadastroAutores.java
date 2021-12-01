@@ -43,6 +43,14 @@ public class CadastroAutores {
 
 	@Column(name="mini_curriculo")
 	private String miniCurriculo;
+
+	public void atualizarInformacoes(String nome, LocalDate dataNascimento, String email, String miniCurriculo) {
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.email= email;
+		this.miniCurriculo = miniCurriculo;
+		
+	}
 	
 	
 	
