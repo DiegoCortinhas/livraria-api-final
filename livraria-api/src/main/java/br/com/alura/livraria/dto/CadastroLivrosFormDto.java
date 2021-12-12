@@ -41,4 +41,7 @@ public class CadastroLivrosFormDto {
 	@JsonAlias("cadastro_autor_id")
 	private Long cadastroAutorId;
 	
+	@JsonAlias("usuario_id")
+	private Long usuarioId;
+	
 }

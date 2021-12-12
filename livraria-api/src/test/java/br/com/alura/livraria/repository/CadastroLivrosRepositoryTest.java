@@ -59,28 +59,32 @@ class CadastroLivrosRepositoryTest {
 				"Aprenda Java em 21 dias",
 				LocalDate.of(2004, 03, 12),
 				500,
-				a1);
+				a1, 
+				null);
 		em.persist(c1);
 		
 		CadastroLivros c2 = new CadastroLivros(
 				"Como ser mais produtivo",
 				LocalDate.of(2004, 04, 21),
 				500,
-				a2);
+				a2,
+				null);
 		em.persist(c2);
 		
 		CadastroLivros c3 = new CadastroLivros(
 				"Aprenda a falar em publico",
 				LocalDate.of(2004, 07, 01),
 				400,
-				a3);
+				a3,
+				null);
 		em.persist(c3);
 		
 		CadastroLivros c4 = new CadastroLivros(
 				"Otimizando o seu tempo",
 				LocalDate.of(2004, 12, 10),
 				400,
-				a2);
+				a2,
+				null);
 		em.persist(c4);
 		
 		List <ItemLivrariaDto> relatorio =repository.relatorioQuantidadeLivros();

@@ -38,14 +38,18 @@ public class CadastroLivros {
 	
 	@ManyToOne 
 	private CadastroAutores cadastroAutor;
+	
+	@ManyToOne							
+	private Usuario usuario;
 
 	public CadastroLivros(String titulo, LocalDate dataLancamento, Integer numeroPaginas,
-			CadastroAutores cadastroAutor) {
+			CadastroAutores cadastroAutor, Usuario usuario) {
 		
 		this.titulo = titulo;
 		this.dataLancamento = dataLancamento;
 		this.numeroPaginas = numeroPaginas;
 		this.cadastroAutor = cadastroAutor;
+		this.usuario=usuario;
 	}
 
 	public void atualizarInformacoes(String titulo, LocalDate dataLancamento, Integer numeroPaginas) {
