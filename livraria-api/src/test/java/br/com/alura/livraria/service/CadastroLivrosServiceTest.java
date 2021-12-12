@@ -35,7 +35,8 @@ class CadastroLivrosServiceTest {
 				titulo, 
 				LocalDate.now(), 
 				quantidade, 
-				id);
+				id,
+				1L);
 		return formDto;
 	}
 	
