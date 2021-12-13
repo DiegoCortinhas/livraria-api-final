@@ -2,11 +2,14 @@ package br.com.alura.livraria.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.domain.Pageable;
 
 import br.com.alura.livraria.dto.ItemLivrariaDto;
 import br.com.alura.livraria.modelo.CadastroLivros;
+import br.com.alura.livraria.modelo.Usuario;
 
 public interface CadastroLivrosRepository extends JpaRepository<CadastroLivros, Long> {
 	
@@ -19,6 +22,8 @@ public interface CadastroLivrosRepository extends JpaRepository<CadastroLivros, 
 			+ "group by a.nome")
 	
 	List<ItemLivrariaDto> relatorioQuantidadeLivros();
+	
+	Page<CadastroLivros> findAllByUsuario(Pageable paginacao, Usuario usuario);
 
 	
 }

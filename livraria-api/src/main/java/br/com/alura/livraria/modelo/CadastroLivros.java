@@ -59,6 +59,8 @@ public class CadastroLivros {
 	}
 	
 	
-	
+	public boolean pertenceAoUsuario(Usuario usuario) {
+		return this.usuario.equals(usuario);
+	}
 	
 }
