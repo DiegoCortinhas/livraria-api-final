@@ -21,6 +21,7 @@ public class VerificacaoTokenFilter extends OncePerRequestFilter{
 	
 	
 	private TokenService tokenService;
+	
 	private UsuarioRepository usuarioRepository;
 	
 	public VerificacaoTokenFilter(TokenService tokenService, UsuarioRepository usuarioRepository) {
