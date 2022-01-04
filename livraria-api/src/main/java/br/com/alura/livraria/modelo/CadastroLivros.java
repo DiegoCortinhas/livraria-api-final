@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +38,7 @@ public class CadastroLivros {
 	@Column(name = "numero_paginas")
 	private Integer numeroPaginas;
 	
-	@ManyToOne 
+	@ManyToOne
 	private CadastroAutores cadastroAutor;
 	
 	@ManyToOne							
